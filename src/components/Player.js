@@ -63,19 +63,19 @@ Player.prototype.update = function (time, state, keys) {
   if (keys.arrowLeft) xSpeed -= playerXSpeed;
   if (keys.arrowRight) xSpeed += playerXSpeed;
   let pos = this.pos;
-  let movedX = pos.plus(new Vec(xSpeed * time, 0));
+  // let movedX = pos.plus(new Vec(xSpeed * time, 0));
 
-  if (!state.level.touches(movedX, this.size, "wall")) pos = movedX;
+  // if (!state.level.touches(movedX, this.size, "wall")) pos = movedX;
 
   let ySpeed = this.speed.y + time * gravity;
   let movedY = pos.plus(new Vec(0, ySpeed * time));
 
-  if (!state.level.touches(movedY, this.size, "wall")) {
-    pos = movedY;
-  } else if (keys.ArrowUp && ySpeed > 0) {
-    ySpeed = -jumpSpeed;
-  } else {
-    ySpeed = 0;
-  }
+  // if (!state.level.touches(movedY, this.size, "wall")) {
+  //   pos = movedY;
+  // } else if (keys.ArrowUp && ySpeed > 0) {
+  //   ySpeed = -jumpSpeed;
+  // } else {
+  //   ySpeed = 0;
+  // }
   return new Player(pos, new Vec(xSpeed, ySpeed));
 };
