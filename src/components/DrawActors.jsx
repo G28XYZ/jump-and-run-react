@@ -1,6 +1,6 @@
 import { scale } from "../utils/constants";
 
-function DrawActors({ level }) {
+function DrawActors({ level, pos }) {
   return (
     <div className="mechanic">
       {level.startActors.map((actor, i) => {
