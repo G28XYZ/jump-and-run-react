@@ -1,6 +1,5 @@
 import { scale } from "../utils/constants";
 import React, { useState, useEffect } from "react";
-import DOMDisplay from "./DOMDisplay";
 
 function DrawActors({ state }) {
   const [milliseconds, setMilliseconds] = useState(0);
@@ -15,7 +14,7 @@ function DrawActors({ state }) {
       const timeStep = Math.min(time - lastTime, 100) / 1000;
       // const date = new Date();
       // setMilliseconds(date.getMilliseconds());
-      state.update(timeStep);
+      let runState = state.update(timeStep);
       // display.scrollPlayerIntoView(level.startActors.find((item) => item.type.includes("player")));
       // level.startActors.forEach((actor) => actor.update(timeStep, level));
       setLastTime(time);
