@@ -10,30 +10,35 @@ function overlap(actor1, actor2) {
 }
 
 export default class State {
-  constructor(level, actors, status) {
+  constructor(level, actors, status, display) {
     this.level = level;
     this.actors = actors;
     this.status = status;
+    this.display = display;
   }
 
-  static start(level) {
-    return new State(level, level.startActors, "playing");
+  static start(level, display) {
+    return new State(level, level.startActors, "playing", display);
   }
 
   get player() {
-    return this.actors.find((a) => a.type === "player");
+    return this.actors.find((a) => a.type.includes("player"));
   }
 }
 
-State.prototype.update = function (time, keys) {
-  let actors = this.actors.map((actor) => actor.update(time, this, keys));
+State.prototype.update = function (time) {
+  if (!this.display.dom) {
+    this.display = new this.display();
+  }
+  let actors = this.actors.map((actor) => actor.update(time, this));
   let newState = new State(this.level, actors, this.status);
 
-  if (newState.status !== "playing") return newState;
+  if (this.status !== "playing") return newState;
 
-  let player = newState.player;
+  let player = this.player;
   if (this.level.touches(player.pos, player.size, "lava")) {
-    return new State(this.level, actors, "lost");
+    this.actors = actors;
+    this.status = "lost";
   }
 
   for (let actor of actors) {
@@ -41,5 +46,6 @@ State.prototype.update = function (time, keys) {
       newState = actor.collide(newState);
     }
   }
+  this.display.syncState(this);
   return newState;
 };

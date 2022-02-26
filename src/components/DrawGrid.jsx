@@ -1,10 +1,10 @@
 import { scale } from "../utils/constants";
 
-function DrawGrid({ level }) {
+function DrawGrid({ state }) {
   return (
-    <table className="background" style={{ width: level.width * scale }}>
+    <table className="background" style={{ width: state.level.width * scale }}>
       <tbody>
-        {level.rows.map((row, i) => {
+        {state.level.rows.map((row, i) => {
           return (
             <tr key={"tr" + i} style={{ height: scale }}>
               {row.map((type, j) => {

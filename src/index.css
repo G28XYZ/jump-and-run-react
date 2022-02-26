@@ -1,9 +1,19 @@
 .game {
   margin: 0 auto;
   overflow: hidden;
-  max-width: 750px;
-  max-height: 580px;
+  max-width: 70%;
+  max-height: 90vh;
   position: relative;
+}
+
+.timer {
+  position: absolute;
+  top: 0;
+  left: 5px;
+}
+
+.left {
+  transform: scale(-1, 1);
 }
 
 .background {
