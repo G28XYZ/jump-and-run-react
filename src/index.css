@@ -4,6 +4,7 @@
   max-width: 70%;
   max-height: 90vh;
   position: relative;
+  z-index: 1;
 }
 
 .timer {

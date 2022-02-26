@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
-
-import DrawGrid from "./DrawGrid";
 import DrawActors from "./DrawActors";
+import DrawGrid from "./DrawGrid";
 
 import State from "./State";
 import Player from "./Player";
@@ -9,6 +7,7 @@ import Coin from "./Coin";
 import Lava from "./Lava";
 import Level from "./Level";
 import DOMDisplay from "./DOMDisplay";
+import React, { useState, useEffect } from "react";
 
 const levelChars = {
   ".": "empty",

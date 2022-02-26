@@ -1,15 +1,16 @@
 import { scale } from "../utils/constants";
-
 export default class DOMDisplay {
   constructor() {
     this.dom = document.querySelector(".game");
   }
 
   clear() {
-    this.dom.remove();
+    this.dom.querySelector(".background").remove();
   }
 
   syncState(state) {
+    if (state.status !== "playing") {
+    }
     this.scrollPlayerIntoView(state);
   }
 

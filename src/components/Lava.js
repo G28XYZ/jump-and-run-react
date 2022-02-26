@@ -2,11 +2,11 @@ import State from "./State";
 import Vec from "./Vec";
 
 export default class Lava {
-  constructor(pos, speed, reset) {
+  constructor(pos, speed, reset, type = "lava") {
     this.pos = pos;
     this.speed = speed;
     this.reset = reset;
-    this._type = "lava";
+    this._type = type;
   }
 
   get type() {
@@ -15,11 +15,11 @@ export default class Lava {
 
   static create(pos, ch) {
     if (ch === "=") {
-      return new Lava(pos, new Vec(2, 0));
+      return new Lava(pos, new Vec(2, 0), "", "lava fire");
     } else if (ch === "|") {
-      return new Lava(pos, new Vec(0, 2));
+      return new Lava(pos, new Vec(0, 2), "", "lava fire");
     } else if (ch === "v") {
-      return new Lava(pos, new Vec(0, 3), pos);
+      return new Lava(pos, new Vec(0, 3), pos, "lava drop");
     }
   }
 }
