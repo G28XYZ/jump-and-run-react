@@ -1,48 +1,63 @@
 // import { overlap } from "../pages/index";
 
-function overlap(actor1, actor2) {
-  return (
-    actor1.pos.x + actor1.size.x > actor2.pos.x &&
-    actor1.pos.x < actor2.pos.x + actor2.size.x &&
-    actor1.pos.y + actor1.size.y > actor2.pos.y &&
-    actor1.pos.y < actor2.pos.y + actor2.size.y
-  );
-}
+import { GAME_LEVELS } from "../utils/constants";
 
 export default class State {
-  constructor(level, actors, status, display) {
-    this.level = level;
-    this.actors = actors;
+  constructor(level, display, status, levelChars) {
+    this.lvl = 0;
+    this.levelChars = levelChars;
+    this.levelClass = level;
+    this.displayClass = display;
+    this.level = this.newLevel(this.lvl);
+    this.actors = this.level.startActors;
     this.status = status;
-    this.display = display;
+    this.display = null;
   }
 
-  static start(level, display) {
-    return new State(level, level.startActors, "playing", display);
+  static start({ level, display }, levelChars) {
+    return new State(level, display, "playing", levelChars);
+  }
+
+  newLevel() {
+    this.display = new this.displayClass();
+    return new this.levelClass(GAME_LEVELS[this.lvl], this.levelChars);
   }
 
   get player() {
     return this.actors.find((a) => a.type.includes("player"));
   }
+
+  overlap(actor1, actor2) {
+    return (
+      actor1.pos.x + actor1.size.x > actor2.pos.x &&
+      actor1.pos.x < actor2.pos.x + actor2.size.x &&
+      actor1.pos.y + actor1.size.y > actor2.pos.y &&
+      actor1.pos.y < actor2.pos.y + actor2.size.y
+    );
+  }
 }
 
 State.prototype.update = function (time) {
-  if (!this.display.dom) {
-    this.display = new this.display();
+  if (!this.display) {
+    this.display = new this.displayClass();
   }
   let actors = this.actors.map((actor) => actor.update(time, this));
 
   if (this.status !== "playing") {
-    this.actors = actors;
-    return this;
+    this.level = this.newLevel(this.lvl);
+    this.actors = this.level.startActors;
+    console.log(this);
+    this.status = "playing";
   }
 
   if (this.level.touches(this.player.pos, this.player.size, "lava")) {
-    this.actors = actors;
-    this.status = "lost";
+    this.level = this.newLevel(this.lvl);
+    this.actors = this.level.startActors;
+    console.log(this);
+    this.status = "playing";
   }
   for (let actor of actors) {
-    if (actor !== this.player && overlap(actor, this.player)) {
+    if (actor !== this.player && this.overlap(actor, this.player)) {
       actor.collide(this);
     }
   }

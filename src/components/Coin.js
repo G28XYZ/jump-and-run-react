@@ -1,6 +1,5 @@
 import { wobbleDist, wobbleSpeed } from "../utils/constants";
 import Vec from "./Vec";
-import State from "./State";
 
 export default class Coin {
   constructor(pos, basePos, wobble) {
@@ -33,7 +32,11 @@ Coin.prototype.size = new Vec(1, 1);
 Coin.prototype.collide = function (state) {
   let filtered = state.actors.filter((a) => a !== this);
   let status = state.status;
-  if (!filtered.some((a) => a.type === "coin")) status = "won";
+  if (!filtered.some((a) => a.type === "coin")) {
+    state.lvl += 1;
+    state.status = "won";
+    return;
+  }
   state.actors = filtered;
   state.status = status;
   return state;
