@@ -57,18 +57,24 @@
 }
 
 .coin {
-  background: rgb(241, 229, 89);
-  background-size: contain;
+  background-image: url(./images/rub-coin.gif);
+  position: center;
+  background-size: 110%;
   border-radius: 50%;
 }
 
 .player {
   background: none;
-  background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/30563504-c3bc-42af-935b-35098674ade3/d4gog7h-ded9736f-a458-42b9-8d70-a2b57adfbbec.png/v1/fill/w_760,h_1052,strp/mario___newer_by_tails19950_d4gog7h-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI0NiIsInBhdGgiOiJcL2ZcLzMwNTYzNTA0LWMzYmMtNDJhZi05MzViLTM1MDk4Njc0YWRlM1wvZDRnb2c3aC1kZWQ5NzM2Zi1hNDU4LTQyYjktOGQ3MC1hMmI1N2FkZmJiZWMucG5nIiwid2lkdGgiOiI8PTkwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.6rQ2DDjp3t-aFjP-aNaQgyhRJv-TesNd58ZgUPlxGdk);
-  background-size: 100%;
+  background-image: url(./images/mario.gif);
+  background-size: 150%;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 50%;
+}
+
+.stay {
+  background-image: url(./images/stay.gif);
+  background-size: 150%;
 }
 
 .lost .player {

@@ -37,6 +37,10 @@ export default class Player {
       xSpeed += playerXSpeed;
     }
 
+    if (Object.values(this.arrowKeys).every((key) => key === false)) {
+      this._type = this._type + " stay";
+    }
+
     let pos = this.pos;
     let movedX = pos.plus(new Vec(xSpeed * timeStep, 0));
 
