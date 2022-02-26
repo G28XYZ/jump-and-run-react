@@ -33,19 +33,20 @@ State.prototype.update = function (time) {
   let actors = this.actors.map((actor) => actor.update(time, this));
   let newState = new State(this.level, actors, this.status);
 
-  if (this.status !== "playing") return newState;
+  if (this.status !== "playing") {
+    this.actors = actors;
+  }
 
-  let player = this.player;
-  if (this.level.touches(player.pos, player.size, "lava")) {
+  if (this.level.touches(this.player.pos, this.player.size, "lava")) {
     this.actors = actors;
     this.status = "lost";
   }
-
+  console.log(this.status);
   for (let actor of actors) {
-    if (actor !== player && overlap(actor, player)) {
-      newState = actor.collide(newState);
+    if (actor !== this.player && overlap(actor, this.player)) {
+      actor.collide(this);
     }
   }
   this.display.syncState(this);
-  return newState;
+  return this;
 };

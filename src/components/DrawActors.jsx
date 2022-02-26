@@ -24,7 +24,7 @@ function DrawActors({ state }) {
 
   return (
     <div className="mechanic">
-      {state.level.startActors.map((actor, i) => {
+      {state.actors.map((actor, i) => {
         const rect = (
           <div
             key={i}
