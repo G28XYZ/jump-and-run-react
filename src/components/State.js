@@ -44,16 +44,18 @@ State.prototype.update = function (time) {
   let actors = this.actors.map((actor) => actor.update(time, this));
 
   if (this.status !== "playing") {
+    if (this.status === "won" && this.lvl === GAME_LEVELS.length) {
+      alert("Поздравляю! 🎉\nТы победил! 🏆");
+      this.lvl = 0;
+    }
     this.level = this.newLevel(this.lvl);
     this.actors = this.level.startActors;
-    console.log(this);
     this.status = "playing";
   }
 
   if (this.level.touches(this.player.pos, this.player.size, "lava")) {
     this.level = this.newLevel(this.lvl);
     this.actors = this.level.startActors;
-    console.log(this);
     this.status = "playing";
   }
   for (let actor of actors) {

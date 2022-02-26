@@ -38,7 +38,7 @@ export default class Player {
     }
 
     if (Object.values(this.arrowKeys).every((key) => key === false)) {
-      this._type = this._type + " stay";
+      this._type += this._type.includes("stay") ? "" : " stay";
     }
 
     let pos = this.pos;

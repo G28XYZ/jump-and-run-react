@@ -1,16 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap");
+
 .game {
+  font-family: "Play", sans-serif;
   margin: 0 auto;
   overflow: hidden;
-  max-width: 70%;
-  max-height: 90vh;
+  max-width: 750px;
+  max-height: 580px;
   position: relative;
-  z-index: 1;
 }
 
-.timer {
-  position: absolute;
-  top: 0;
-  left: 5px;
+.score {
+  font-size: 20px;
+  position: fixed;
+  top: 1%;
+  right: 47%;
+  width: max-content;
+  height: max-content;
+  text-align: center;
 }
 
 .left {
@@ -64,12 +70,11 @@
 }
 
 .player {
-  background: none;
+  overflow: visible;
   background-image: url(./images/mario.gif);
   background-size: 150%;
   background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 50%;
+  background-position: bottom;
 }
 
 .stay {

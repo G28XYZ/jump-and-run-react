@@ -1,44 +1,39 @@
 import { scale } from "../utils/constants";
 import React, { useState, useEffect } from "react";
+import Score from "./Score";
 
 function DrawActors({ state }) {
-  const [milliseconds, setMilliseconds] = useState(0);
   const [lastTime, setLastTime] = useState(0);
-
-  function ft(t) {
-    return t.toString().length === 1 ? "0" + t : t;
-  }
 
   useEffect(() => {
     requestAnimationFrame((time) => {
       const timeStep = Math.min(time - lastTime, 100) / 1000;
-      // const date = new Date();
-      // setMilliseconds(date.getMilliseconds());
-      let runState = state.update(timeStep);
-      // display.scrollPlayerIntoView(level.startActors.find((item) => item.type.includes("player")));
-      // level.startActors.forEach((actor) => actor.update(timeStep, level));
+      state.update(timeStep);
       setLastTime(time);
     });
   });
 
   return (
-    <div className="mechanic">
-      {state.actors.map((actor, i) => {
-        const rect = (
-          <div
-            key={i}
-            className={`actor ${actor.type}`}
-            style={{
-              width: actor.size.x * scale,
-              height: actor.size.y * scale,
-              left: actor.pos.x * scale,
-              top: actor.pos.y * scale,
-            }}
-          ></div>
-        );
-        return rect;
-      })}
-    </div>
+    <>
+      <Score state={state} />
+      <div className="mechanic">
+        {state.actors.map((actor, i) => {
+          const rect = (
+            <div
+              key={i}
+              className={`actor ${actor.type}`}
+              style={{
+                width: actor.size.x * scale,
+                height: actor.size.y * scale,
+                left: actor.pos.x * scale,
+                top: actor.pos.y * scale,
+              }}
+            ></div>
+          );
+          return rect;
+        })}
+      </div>
+    </>
   );
 }
 
