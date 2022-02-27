@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.72080393.css",
-    "main.js": "/static/js/main.67033503.js",
-    "static/media/mario.gif": "/static/media/mario.c849c4048d322a210111.gif",
-    "static/media/rub-coin.gif": "/static/media/rub-coin.b549de54d31bd987da54.gif",
-    "static/media/stay.gif": "/static/media/stay.63acdd6e4677c0ce1ad3.gif",
-    "index.html": "/index.html",
-    "main.72080393.css.map": "/static/css/main.72080393.css.map",
-    "main.67033503.js.map": "/static/js/main.67033503.js.map"
+    "main.css": "/jump-and-run-react/static/css/main.a05b2efc.css",
+    "main.js": "/jump-and-run-react/static/js/main.67033503.js",
+    "static/media/mario.gif": "/jump-and-run-react/static/media/mario.c849c4048d322a210111.gif",
+    "static/media/rub-coin.gif": "/jump-and-run-react/static/media/rub-coin.b549de54d31bd987da54.gif",
+    "static/media/stay.gif": "/jump-and-run-react/static/media/stay.63acdd6e4677c0ce1ad3.gif",
+    "index.html": "/jump-and-run-react/index.html",
+    "main.a05b2efc.css.map": "/jump-and-run-react/static/css/main.a05b2efc.css.map",
+    "main.67033503.js.map": "/jump-and-run-react/static/js/main.67033503.js.map"
   },
   "entrypoints": [
-    "static/css/main.72080393.css",
+    "static/css/main.a05b2efc.css",
     "static/js/main.67033503.js"
   ]
 }
