@@ -101,6 +101,6 @@
 }
 
 .won {
-  background-image: url(https://i.pinimg.com/originals/f7/5f/f2/f75ff23cd22d200f24bfd21f3a8b1f86.gif);
-  background-size: 100%;
+  background-image: url(./images/win.gif);
+  background-size: 110%;
 }
