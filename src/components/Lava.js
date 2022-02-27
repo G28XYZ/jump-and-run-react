@@ -1,4 +1,4 @@
-import State from "./State";
+import pause from "./Pause";
 import Vec from "./Vec";
 
 export default class Lava {
@@ -27,7 +27,11 @@ export default class Lava {
 Lava.prototype.size = new Vec(1, 1);
 
 Lava.prototype.collide = function (state) {
-  state.status = "lost";
+  state.player._type += " lost";
+  pause(1).then(() => {
+    state.status = "lost";
+    state.player._type = "player";
+  });
 };
 
 Lava.prototype.update = function (time, state) {

@@ -1,5 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap");
 
+@keyframes lava {
+  0% {
+    background-color: #ff0058;
+  }
+  50% {
+    background-color: #ffa000;
+  }
+  100% {
+    background-color: #ff0058;
+  }
+}
+
 .game {
   font-family: "Play", sans-serif;
   margin: 0 auto;
@@ -34,21 +46,22 @@
 }
 
 .lava {
-  background-image: url(https://i.gifer.com/Il5.gif);
+  background-image: url(./images/lava.gif);
   background-size: 100%;
 }
 .fire {
-  background: none;
+  background-color: transparent;
   border-radius: 50%;
-  background-image: url(https://thumbs.gfycat.com/OrnateWeeElver-size_restricted.gif);
+  background-image: url(./images/electro.gif);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-position: center;
+  background-size: 110%;
 }
 
 .drop {
-  background: none;
+  background-color: none;
   border-radius: 50%;
-  background-image: url(https://acegif.com/wp-content/gifs/fire-77.gif);
+  background-image: url(./images/fire.gif);
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
@@ -82,10 +95,12 @@
   background-size: 150%;
 }
 
-.lost .player {
-  background: rgb(160, 64, 64);
+.lost {
+  opacity: 0;
+  transition: opacity 1s;
 }
 
-.won .player {
-  box-shadow: -4px -7px 8px white, 4px, -7px 8px white;
+.won {
+  background-image: url(https://i.pinimg.com/originals/f7/5f/f2/f75ff23cd22d200f24bfd21f3a8b1f86.gif);
+  background-size: 100%;
 }

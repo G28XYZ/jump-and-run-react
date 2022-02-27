@@ -28,11 +28,12 @@ export default class Player {
 
   update(timeStep, state) {
     let xSpeed = 0;
-    if (this.arrowKeys.ArrowLeft) {
+
+    if (this.arrowKeys.ArrowLeft && !this._type.includes("won")) {
       this._type = "player left";
       xSpeed -= playerXSpeed;
     }
-    if (this.arrowKeys.ArrowRight) {
+    if (this.arrowKeys.ArrowRight && !this._type.includes("won")) {
       this._type = "player";
       xSpeed += playerXSpeed;
     }
@@ -62,4 +63,4 @@ export default class Player {
   }
 }
 
-Player.prototype.size = new Vec(0.8, 1.5);
+Player.prototype.size = new Vec(0.8, 1.15);

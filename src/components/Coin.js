@@ -1,4 +1,5 @@
 import { wobbleDist, wobbleSpeed } from "../utils/constants";
+import pause from "./Pause";
 import Vec from "./Vec";
 
 export default class Coin {
@@ -33,9 +34,14 @@ Coin.prototype.collide = function (state) {
   let filtered = state.actors.filter((a) => a !== this);
   let status = state.status;
   if (!filtered.some((a) => a.type === "coin")) {
-    state.lvl += 1;
-    state.status = "won";
-    return;
+    state.actors = filtered;
+    state.player._type = "player won";
+    return pause(2).then(() => {
+      state.status = "won";
+      state.lvl += 1;
+      state.player._type = "player";
+      return;
+    });
   }
   state.actors = filtered;
   state.status = status;

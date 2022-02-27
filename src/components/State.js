@@ -1,6 +1,7 @@
 // import { overlap } from "../pages/index";
 
 import { GAME_LEVELS } from "../utils/constants";
+import pause from "./Pause";
 
 export default class State {
   constructor(level, display, status, levelChars) {
@@ -54,9 +55,13 @@ State.prototype.update = function (time) {
   }
 
   if (this.level.touches(this.player.pos, this.player.size, "lava")) {
-    this.level = this.newLevel(this.lvl);
-    this.actors = this.level.startActors;
-    this.status = "playing";
+    this.player._type = "player lost";
+    pause(1).then(() => {
+      this.level = this.newLevel(this.lvl);
+      this.actors = this.level.startActors;
+      this.status = "playing";
+      this.player._type = "player";
+    });
   }
   for (let actor of actors) {
     if (actor !== this.player && this.overlap(actor, this.player)) {
