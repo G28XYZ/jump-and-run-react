@@ -22,8 +22,16 @@ const levelChars = {
 let state = State.start({ level: Level, display: DOMDisplay }, levelChars);
 
 function App() {
+  function onResume() {
+    state.status = "lost";
+  }
   return (
     <>
+      <div className="button-container">
+        <button onClick={onResume} className="button-res">
+          Resume
+        </button>
+      </div>
       <div className="game">
         <DrawGrid state={state} />
         <DrawActors state={state} />

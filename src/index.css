@@ -24,8 +24,8 @@
 .score {
   font-size: 20px;
   position: fixed;
-  top: 1%;
-  right: 47%;
+  top: 10%;
+  right: 45%;
   width: max-content;
   height: max-content;
   text-align: center;
@@ -103,4 +103,17 @@
 .won {
   background-image: url(./images/win.gif);
   background-size: 110%;
+}
+
+.button-res {
+  margin: 0 auto;
+  width: max-content;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+.button-container {
+  text-align: center;
+  width: 100%;
+  padding: 10px 0;
 }

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { scale } from "../utils/constants";
 
 function DrawGrid({ state }) {
-  const [, setNewState] = useState(0);
+  const [, setNewState] = useState(state);
 
   useEffect(() => {
     function checkState(time) {

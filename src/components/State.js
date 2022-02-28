@@ -52,6 +52,7 @@ State.prototype.update = function (time) {
     this.level = this.newLevel(this.lvl);
     this.actors = this.level.startActors;
     this.status = "playing";
+    return this;
   }
 
   if (this.level.touches(this.player.pos, this.player.size, "lava")) {
@@ -62,6 +63,7 @@ State.prototype.update = function (time) {
       this.status = "playing";
       this.player._type = "player";
     });
+    return this;
   }
   for (let actor of actors) {
     if (actor !== this.player && this.overlap(actor, this.player)) {
