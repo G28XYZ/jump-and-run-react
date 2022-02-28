@@ -24,8 +24,8 @@
 .score {
   font-size: 20px;
   position: fixed;
-  top: 10%;
-  right: 45%;
+  top: 0px;
+  right: 30%;
   width: max-content;
   height: max-content;
   text-align: center;
