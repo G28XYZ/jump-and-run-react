@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/jump-and-run-react/static/css/main.3aaa5a9a.css",
+    "main.css": "/jump-and-run-react/static/css/main.a6ce27fc.css",
     "main.js": "/jump-and-run-react/static/js/main.ee8cda95.js",
     "static/media/electro.gif": "/jump-and-run-react/static/media/electro.af02e209fe9c8ca3c14c.gif",
     "static/media/win.gif": "/jump-and-run-react/static/media/win.af83ffb96859e50488ab.gif",
@@ -10,11 +10,11 @@
     "static/media/rub-coin.gif": "/jump-and-run-react/static/media/rub-coin.b549de54d31bd987da54.gif",
     "static/media/stay.gif": "/jump-and-run-react/static/media/stay.63acdd6e4677c0ce1ad3.gif",
     "index.html": "/jump-and-run-react/index.html",
-    "main.3aaa5a9a.css.map": "/jump-and-run-react/static/css/main.3aaa5a9a.css.map",
+    "main.a6ce27fc.css.map": "/jump-and-run-react/static/css/main.a6ce27fc.css.map",
     "main.ee8cda95.js.map": "/jump-and-run-react/static/js/main.ee8cda95.js.map"
   },
   "entrypoints": [
-    "static/css/main.3aaa5a9a.css",
+    "static/css/main.a6ce27fc.css",
     "static/js/main.ee8cda95.js"
   ]
 }
